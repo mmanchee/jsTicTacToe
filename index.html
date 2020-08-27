@@ -3,15 +3,86 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/bootstrap.css">
-  <link rel="stylesheet" href="css/styles.css">
-  <script src="js/jquery-3.5.1.js"></script>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet" type="text/css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="js/scripts.js"></script>
   <title>TITLE</title>
 </head>
 <body>
   <div class="container">
-    
+    <form id="start-game">
+      <div class="form-group">
+        <label for="player1">Player 1:</label>
+        <input id="player1" class="form-control" type="text" placeholder="Enter name.." required>
+      </div>
+      <div class="form-group">
+        <label for="player2">Player 2:</label>
+        <input id="player2" class="form-control" type="text" placeholder="Enter name.." required>
+      </div>
+      <div class="align-item">
+        <button type="submit" class="btn btn-info">Play</button>
+      </div>
+    </form>
+    <div id="game-board">
+      <div class="row align-item">
+        <div class="card">
+          <div class="card-body square" id="square1">
+            <p id="square1-text"></p>
+          </div>
+        </div>
+        <div class="card squaretop">
+          <div class="card-body square" id="square2">
+            <p id="square2-text"></p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body square" id="square3">
+            <p id="square3-text"></p>
+          </div>
+        </div>
+      </div>
+      <div class="row align-item">
+        <div class="card squareleft">
+          <div class="card-body square" id="square4">
+            <p id="square4-text"></p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body square" id="square5">
+            <p id="square5-text"></p>
+          </div>
+        </div>
+        <div class="card squareright">
+          <div class="card-body square" id="square6">
+            <p id="square6-text"></p>
+          </div>
+        </div>
+      </div>
+      <div class="row align-item">
+        <div class="card">
+          <div class="card-body square" id="square7">
+            <p id="square7-text"></p>
+          </div>
+        </div>
+        <div class="card squarebottom">
+          <div class="card-body square" id="square8">
+            <p id="square8-text"></p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body square" id="square9">
+            <p id="square9-text"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="winner">
+      <div class="align-item">
+        <p id="winner-name"></p>
+        <button class="btn btn-info" type="button" >Play Again</button>
+      </div>
+    </div>
   </div>
 </body>
 </html>

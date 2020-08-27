@@ -1,0 +1,46 @@
+.align-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.square {
+  font-size: 200px;
+  width: 170px;
+  text-align: center;
+  align-items: center;
+  display: flex;
+  height: 170px;
+}
+
+.card {
+  border-color: white;
+}
+.squaretop {
+  border-color: black;
+  border-width: 0 5px 5px 5px;
+}
+
+.squareright {
+  border-color: black;
+  border-width: 5px 0 5px 5px;
+}
+
+.squarebottom {
+  border-color: black;
+  border-width: 5px 5px 0 5px;
+}
+
+.squareleft {
+  border-color: black;
+  border-width: 5px 5px 5px 0;
+}
+
+/*
+#game-board {
+  display: none;
+}
+
+#winner {
+  display: none;
+}

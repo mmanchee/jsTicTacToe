@@ -1,6 +1,7 @@
 // Business Logic Game
 function Game() {
   this.players = []
+  this.turn = 0;
 }
 
 Game.prototype.addPlayer = function(player) {
@@ -10,65 +11,69 @@ Game.prototype.addPlayer = function(player) {
 Game.prototype.findPlayer = function() {
   for (let i = 0; i < this.players.length; i++) {
     if (this.players[i].turn === true) {
-      return this.player[i];
+      return i;
     }
   }
 }
 
-// 
-
 // Business Logic Player
-let game = Game();
+let game = new Game();
 
-function Player(name, total, turn) {
+function Player(name, total) {
   this.name = name,
-  this.total = total,
-  this.turn = turn
+  this.total = total
 }
 
 // Interface Logic
+// Mark Function
 function mark(num) {
-  let player = game.findPlayer();
-  let result = [player, num];
   let mark;
-  if (player === 0) {
+  if (game.turn === 0) {
     mark = "X";
   } else {
     mark = "O"
   }
-  $("#square" + num).text(mark);
-  return result;
+  $("#square" + num + "-text").text(mark);
+  $("#square" + num).prop("disabled", true);
 }
 
-function add(array) {
-  game.players[array[0]].total += parseInt(array[1]);
-  return array[0];
+// Add Function
+function add(num) {
+  game.players[game.turn].total += parseInt(num);
 }
 
-function winner(player) {
+// Winner Function
+function winner() {
   let winArray = [5, 111, 222, 333, 123, 321, 50, 500];
   let winner = false;
   for (let i = 0; i < winArray.length; i++) {
-    if (game.players[player].total === winArray[i]) {
+    if (game.players[game.turn].total === winArray[i]) {
       winner = true;
     }
   }
+  return winner;
 }
-
+// End Turn Function
 function endTurn(player) {
-
+  if (game.turn === 0) {
+    game.turn = 1;
+  } else {
+    game.turn = 0;
+  }
+  $("#turn-name").text(game.players[game.turn].name);
 }
 
+// Action Function
 function actions(num) {
-  let result = mark(1);
-  let player = add(result);
-  let winner = winner(player);
-  if (winner) {
-    $("#winner-name").text(game.players[winner].name);
+  mark(num);
+  add(num);
+  let win = winner();
+  if (win) {
+    $("#winner-name").text(game.players[game.turn].name);
     $("#winner").show();
     $("#game-board").hide();
   } else {
-    endTurn(player);
+    endTurn();
   }
 }
 
@@ -78,15 +83,15 @@ $(document).ready(function() {
     let player1Name = $("input#player1").val();
     let player2Name = $("input#player2").val();
 
-    $("#player1-name").text(player1Name);
-    $("#player2-name").text(player2Name);
-    $("#start-game").hide();
-    $("#game-board").show();
-
-    let player1 = new Player(player1Name, 0, true);
-    let player2 = new Player(player2Name, 0, false);
+    let player1 = new Player(player1Name, 0);
+    let player2 = new Player(player2Name, 0);
+    
     game.addPlayer(player1);
     game.addPlayer(player2);
+
+    $("#turn-name").text(game.players[0].name);
+    $("#start-game").hide();
+    $("#game-board").show();
   });
   $("#square1").click(function() {
     actions(1);
@@ -114,5 +119,8 @@ $(document).ready(function() {
   });
   $("#square300").click(function() {
     actions(300);
+  });
+  $("#play-again").click(function() {
+    window.location.reload();
   });
 });

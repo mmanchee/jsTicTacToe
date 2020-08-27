@@ -25,26 +25,29 @@
       </div>
     </form>
     <div id="game-board">
-      <div class="row align-item">
-        <button class="square" type="button" id="square1" value="1">?</button>
-        <button class="square" type="button" id="square2" value="2">?</button>
-        <button class="square" type="button" id="square3" value="3">?</button>
+      <div>
+        <p>It's your turn <span id="turn-name"></span> !</p>
       </div>
       <div class="row align-item">
-        <button class="square" type="button" id="square10" value="10">?</button>
-        <button class="square" type="button" id="square20" value="20">?</button>
-        <button class="square" type="button" id="square30" value="30">?</button>
+        <button class="square" type="button" id="square1" value="1"><span id="square1-text">?</span></button>
+        <button class="square" type="button" id="square2" value="2"><span id="square2-text">?</span></button>
+        <button class="square" type="button" id="square3" value="3"><span id="square3-text">?</span></button>
       </div>
       <div class="row align-item">
-        <button class="square" type="button" id="square100" value="100">?</button>
-        <button class="square" type="button" id="square200" value="200">?</button>
-        <button class="square" type="button" id="square300" value="300">?</button>
+        <button class="square" type="button" id="square10" value="10"><span id="square10-text">?</span></button>
+        <button class="square" type="button" id="square20" value="20"><span id="square20-text">?</span></button>
+        <button class="square" type="button" id="square30" value="30"><span id="square30-text">?</span></button>
+      </div>
+      <div class="row align-item">
+        <button class="square" type="button" id="square100" value="100"><span id="square100-text">?</span></button>
+        <button class="square" type="button" id="square200" value="200"><span id="square200-text">?</span></button>
+        <button class="square" type="button" id="square300" value="300"><span id="square300-text">?</span></button>
       </div>
     </div>
     <div id="winner">
       <div class="align-item">
-        <p id="winner-name"></p>
-        <button class="btn btn-info" type="button" >Play Again</button>
+        <p >You win <span id="winner-name"></span> !</p>
+        <button class="btn btn-info" type="button" id="play-again">Play Again</button>
       </div>
     </div>
   </div>
